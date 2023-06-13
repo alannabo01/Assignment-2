@@ -13,3 +13,19 @@ if (is.na(as.integer(number))) {
 
 # Converting the input to an integer.
 number <- as.integer(number)
+
+# Checking if the number is three digits long. If not, the program quits.
+if (number < 100 | number > 999) {
+  print("Error: Input is not a three-digit number.")
+  quit(save = "no")
+}
+
+# Checking if the number is narcissistic.
+digits <- c(number %/% 100, (number %/% 10) %% 10, number %% 10)
+narcissistic <- sum(digits^3)
+
+if (number == narcissistic) {
+  print(paste(number, "is a narcissistic number!"))
+} else {
+  print(paste(number, "is not a narcissistic number."))
+}
